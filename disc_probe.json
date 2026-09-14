@@ -1,0 +1,31 @@
+{
+  "cue_path": "I:\\Projects\\PSX-Ports-pilot\\_disc\\fear-effect-2-retro-helix\\Fear Effect 2 - Retro Helix (USA) (Disc 1) (Rev 1).cue",
+  "cue_name": "Fear Effect 2 - Retro Helix (USA) (Disc 1) (Rev 1).cue",
+  "bin_name": "Fear Effect 2 - Retro Helix (USA) (Disc 1) (Rev 1).bin",
+  "track_count": 1,
+  "data_track_size": 746844672,
+  "data_track_md5": "0258657dd944a139fdddc81345a6d9ee",
+  "data_track_sha1": "86a470f414de3f7af60c06fdc065f4f32015650c",
+  "data_track_crc32": "156bfdb4",
+  "boot_exe": "SLUS_012.66",
+  "serial": "SLUS-01266",
+  "serial_exe": "SLUS_012.66",
+  "volume_id": "SLUS-01266",
+  "display_name": "Fear Effect 2: Retro Helix",
+  "load_address": "0x80010000",
+  "entry_pc": "0x8005C130",
+  "text_size": "0x00073000",
+  "stack_base": "0x801FFFF0",
+  "require_cue": true,
+  "required_disc_fp": "d75fe034a6c039cf87b718037a075014ce7cbfc79fe391850c32224a7f33ed57",
+  "boot_exe_sha256": "51ba4265830560874b2406aa9e01125f8f83fd24a4ad2111a5a157bc3585cbd7",
+  "seed_count": 1165,
+  "warnings": [
+    "cue has only 1 TRACK \u2014 Track-01-only dumps fail multi-track netplay/catalog gates; prefer a full Redump cue."
+  ],
+  "notes": [
+    "entry_pc/load_address/text_size/stack_base taken from PS-X EXE header.",
+    "seeds are first-pass boot-EXE JAL targets (+ entry); expect to grow as overlays / runtime paths are discovered.",
+    "required_disc_fp is psxrecomp-toc-v1 (matches runtime DiscIdentity)."
+  ]
+}

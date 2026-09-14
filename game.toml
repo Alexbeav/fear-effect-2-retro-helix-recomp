@@ -1,0 +1,66 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Fear Effect 2: Retro Helix"
+id = "SLUS-01266"
+players = 2
+exe = "disc/SLUS_012.66"
+# Verified as one program on N images (verify_disc_set.py).
+# Disc 1 boots; the rest are data. The runtime builds its disc
+# roster from this list and mounts the SELECTED one (remembered
+# in disc_index), so the launcher can switch discs between runs.
+# Swapping mid-session is MULTI_DISC.md P3 and is not implemented.
+discs = [
+    "disc/Fear Effect 2 - Retro Helix (USA) (Disc 1) (Rev 1).cue",
+    "disc/Fear Effect 2 - Retro Helix (USA) (Disc 2) (Rev 1).cue",
+    "disc/Fear Effect 2 - Retro Helix (USA) (Disc 3) (Rev 1).cue",
+    "disc/Fear Effect 2 - Retro Helix (USA) (Disc 4) (Rev 1).cue",
+]
+load_address = "0x80010000"
+entry_pc = "0x8005C130"
+text_size = "0x00073000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Fear Effect 2 - Retro Helix (USA) (Disc 1) (Rev 1).bin"
+cue_name = "Fear Effect 2 - Retro Helix (USA) (Disc 1) (Rev 1).cue"
+boot_exe = "SLUS_012.66"
+known_sizes = [746844672]
+known_md5 = [
+  "0258657dd944a139fdddc81345a6d9ee",
+]
+known_sha1 = [
+  "86a470f414de3f7af60c06fdc065f4f32015650c",
+]
+known_crc32 = [
+  "156bfdb4",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH1001.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+window_title = "Fear Effect 2: Retro Helix Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "d75fe034a6c039cf87b718037a075014ce7cbfc79fe391850c32224a7f33ed57"
